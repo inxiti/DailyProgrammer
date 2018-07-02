@@ -1,16 +1,16 @@
+(ns com.subpxl
+  (:require [clojure.string :as string]))
+
 ; TODO: params should be a string in format "DdS" to be parsed, ex: "3d6"
 (defn roll-dice
-  [dice sides]
-  (loop [remaining-dice dice
+  "Rolls `amount` of dice, with `sides`."
+  [amount sides]
+  (loop [remaining-dice amount
          rolls []]
-    (if (> remaining-dice 0)
+    (if (pos? remaining-dice)
       (recur (dec remaining-dice)
              (conj rolls (inc (rand-int sides))))
-      rolls)))
+      (str (apply + rolls) ": " (string/join " " rolls)))))
 
-; TODO: return this formatted string from roll-dice, instead of the vector of
-; rolls
-(let [results (roll-dice 5 8)
-      results-as-string (clojure.string/join " " results)
-      total (apply + results)]
-  (str total ": " results-as-string))
+; (roll-dice "3d20") ; goal
+(roll-dice 5 20)
