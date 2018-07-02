@@ -6,5 +6,4 @@
         total   (apply + rolls)]
     (str total ": " (clojure.string/join " " rolls))))
 
-    (roll-dice "3d20")
-
+(roll-dice "3d20")
