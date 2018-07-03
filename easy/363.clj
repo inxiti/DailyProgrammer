@@ -7,5 +7,5 @@
          (not (.contains word "cei"))) false
     :else true))
 
-; test
+; tests
 (map check ["a" "zombie" "transceiver" "veil" "icier"])
