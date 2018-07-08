@@ -1,3 +1,5 @@
+; TODO: use digits instead of string
+
 (defn paper-fold
   "Paper fold up to `n` times."
   [n]
