@@ -1,7 +1,7 @@
 (comment
 		"
   [2019-11-11] Challenge #381 [Easy] Yahtzee Upper Section Scoring
-  
+
 		Description
 
 		The game of Yahtzee is played by rolling five 6-sided dice, and scoring the results in a number of
@@ -33,15 +33,15 @@
 (defn yahtzee_upper
 		"Scores a yahtzee roll."
 		[roll]
-		; create a mapping, if key exists increase the value by x amount, otherwise set key to value of
-		; key
-		;
-		; return max value within the list of values
-		roll)
+  ; get frequencies of distinct items in collection
+  ; get maximum score by multiplying the value by the occurences, compare to previous for max
+		(reduce #(max %1 (apply * %2)) ; f
+          0                      ; accumulator
+          (frequencies roll)))   ; collection
 
 ; tests
-(println (yahtzee_upper([2, 3, 5, 5, 6]))) ; => 10
-(println (yahtzee_upper([1, 1, 1, 1, 3]))) ; => 4
-(println (yahtzee_upper([1, 1, 1, 3, 3]))) ; => 3
-(println (yahtzee_upper([1, 2, 3, 4, 5]))) ; => 5
-(println (yahtzee_upper([6, 6, 6, 6, 6]))) ; => 30
+(println (yahtzee_upper [2, 3, 5, 5, 6])) ; => 10
+(println (yahtzee_upper [1, 1, 1, 1, 3])) ; => 4
+(println (yahtzee_upper [1, 1, 1, 3, 3])) ; => 3
+(println (yahtzee_upper [1, 2, 3, 4, 5])) ; => 5
+(println (yahtzee_upper [6, 6, 6, 6, 6])) ; => 30
