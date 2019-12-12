@@ -35,7 +35,8 @@
   [roll]
   ; get frequencies of distinct items in collection
   ; get maximum score by multiplying the value by the occurences, compare to previous for max
-  (reduce #(max %1 (apply * %2)) ; f
+  (reduce #(max %1 
+                (apply * %2))    ; f
           0                      ; accumulator
           (frequencies roll)))   ; collection
 
